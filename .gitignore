@@ -1,0 +1,4 @@
+*.txt
+*.swp
+*.json
+__pycache__
