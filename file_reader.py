@@ -26,6 +26,7 @@ def get_data(filename=None):
 				value = ": ".join(text[1:])
 				if key == 'review/summary' or key == 'review/text':
 					tdict[key] = all_ops_on_words(value)
+					tdict['original_'+key] = value
 
 				elif key == 'review/score':
 					tdict[key] = clean_number(value)

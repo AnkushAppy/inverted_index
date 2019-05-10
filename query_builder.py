@@ -68,7 +68,7 @@ class Search:
 		return list_of_docs
 
 	def get_top_n(self, list_of_docs):
-		return list_of_docs[:self.N]
+		return [[self.data[i[0]]['original_review/text'], self.data[i[0]]['original_review/summary'] ] for i in list_of_docs[:self.N]]
 
 	def write_to_disk(self):
 		import os
@@ -98,6 +98,7 @@ class Search:
 			self.data = json.load(fp)
 		return self.find(query)
 
+'''
 queries = [
 	'story food',
 	'mad mad world',
@@ -123,22 +124,26 @@ best_text = search.fetch_top_keywords()
 print('Top keywords are: ', best_text)
 queries.append(best_text)
 print('*'*30)
+print('Sample search...')
+print('*'*30)
 
 for q in queries:
+	print('*'*30)
 	print(q)
 	s4 = datetime.datetime.now()
-	print(search.find(q))
+	pprint(search.find(q))
 	s5 = datetime.datetime.now()
 	print(s5-s4)
 	
 
 while True:
+	print('*'*30)
 	print('Please enter a query: ')
 	q = input()
 	if len(q.split(' ')) > 10:
 		continue
 	s4 = datetime.datetime.now()
-	print(search.find(q))
+	pprint(search.find(q))
 	s5 = datetime.datetime.now()
 	print(s5-s4)
-	
+'''	
