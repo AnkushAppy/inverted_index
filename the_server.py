@@ -7,8 +7,7 @@ import pprint
 
 app = Flask(__name__)
 
-#filename =  'finefoods.txt'
-filename =  'large.txt'
+filename =  'small_finefood.txt'
 search = Search(filename)
 search.fillup()
 
